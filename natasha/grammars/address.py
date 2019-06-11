@@ -1802,6 +1802,7 @@ GOROD_LEVEL = or_(
     GOROD,
     DEREVNYA,
     SELO,
+    STANICA,
     POSELOK
 )
 STREET_LEVEL = or_(
