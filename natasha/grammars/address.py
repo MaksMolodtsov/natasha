@@ -821,6 +821,33 @@ SELO = rule(
     Settlement
 )
 
+###########
+#
+#   STANICA
+#
+#############
+
+
+STANICA_WORDS = or_(
+    rule(
+        caseless({'ст', 'стан'}),
+        DOT.optional()
+    ),
+    rule(normalized('станица'))
+).interpretation(
+    Settlement.type.const('станица')
+)
+
+STANICA_NAME = SETTLEMENT_NAME.interpretation(
+    Settlement.name
+)
+
+STANICA = rule(
+    STANICA_WORDS,
+    STANICA_NAME
+).interpretation(
+    Settlement
+)
 
 ###########
 #
@@ -831,7 +858,7 @@ SELO = rule(
 
 DEREVNYA_WORDS = or_(
     rule(
-        caseless('д'),
+        caseless({'д', 'дер'}),
         DOT.optional()
     ),
     rule(normalized('деревня'))
