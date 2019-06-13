@@ -830,7 +830,7 @@ SELO = rule(
 
 STANICA_WORDS = or_(
     rule(
-        caseless({'ст', 'стан'}),
+        in_caseless({'ст', 'стан'}),
         DOT.optional()
     ),
     rule(normalized('станица'))
@@ -858,7 +858,7 @@ STANICA = rule(
 
 DEREVNYA_WORDS = or_(
     rule(
-        caseless({'д', 'дер'}),
+        in_caseless({'д', 'дер'}),
         DOT.optional()
     ),
     rule(normalized('деревня'))
